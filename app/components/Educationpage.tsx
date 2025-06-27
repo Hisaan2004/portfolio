@@ -44,13 +44,13 @@ const Educationpage = () => {
         <div className="flex gap-4">
           <button
             onClick={prevSlide}
-            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-500"
+            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 border-2 rounded"
           >
             ⬅ Prev
           </button>
           <button
             onClick={nextSlide}
-            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-500"
+            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 border-2 rounded"
           >
             Next ➡
           </button>

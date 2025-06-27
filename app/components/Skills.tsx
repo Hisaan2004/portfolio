@@ -25,7 +25,7 @@ const Skills = () => {
         <button className='font-bold text-lg border-b items-center' onClick={()=>setOpen(!open)}> Languages / Technologies</button>
         {
             open && (
-                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded'>
+                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded mt-2'>
                 <ul>{tec.map((item, index) => (
               <li className='border-b ' key={index}>
 
@@ -41,7 +41,7 @@ const Skills = () => {
         <button className='font-bold text-lg border-b ' onClick={()=>setOpenFramework(!openFramework)}> Frameworks & Libraries</button>
         {
             openFramework && (
-                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded'>
+                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded mt-2'>
                 <ul>{framework.map((item, index) => (
               <li className='border-b' key={index}>
 
@@ -57,7 +57,7 @@ const Skills = () => {
         <button className='font-bold text-lg border-b ' onClick={()=>setOpenTools(!openTools)}> Tools & Platforms</button>
         {
             openTools && (
-                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded'>
+                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded mt-2'>
                 <ul>{tools.map((item, index) => (
               <li className='border-b' key={index}>
 
@@ -73,7 +73,7 @@ const Skills = () => {
         <button className='font-bold text-lg border-b ' onClick={()=>setOpenSoft(!openSoft)}>Soft Skills</button>
         {
             openSoft && (
-                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded'>
+                <div className='font-semibold flex justify-center bg-gray-200 text-black border border-2 pt-2 pb-4 mr-2 h-50 rounded mt-2'>
                 <ul>{softskills.map((item, index) => (
               <li className='border-b' key={index}>
 

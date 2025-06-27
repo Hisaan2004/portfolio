@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -10,8 +10,6 @@ export default function Theme({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-    {/* Passing darkmode state and setter to Navbar */}
-      
       <html
       className={darkmode? 'dark' : ''}
       >
