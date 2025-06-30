@@ -2,7 +2,6 @@
 import React from 'react';
 import Link from "next/link";
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
 //import Button from "@/app/widget/Button";
 import  Icon from '@/app/widget/Icon'
 import Toggleicon from '@/app/widget/Toggleicon';
@@ -30,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
       {/* Desktop Navbar */}
       <div className="hidden md:flex bg-gray-200 dark:bg-black w-full h-16 items-center px-4 gap-6">
         <Link href="/">
-          <Image
+          <img
             src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
             alt="homepage"
             className="h-10 w-10 rounded"
@@ -62,7 +61,9 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
           <img
             src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
             alt="homepage"
-            className="h-10 w-10 rounded"
+            height={10}
+            width={10}
+            className="rounded"
           />
         </Link>
         {open && (
