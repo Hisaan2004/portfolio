@@ -1,5 +1,5 @@
-'use client';
-import React, { useState } from 'react';
+
+import React from 'react';
 import Text from '@/app/widget/Text'
 import Skillpart from './Skillpart';
 const description=[{
