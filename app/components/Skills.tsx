@@ -20,10 +20,6 @@ const description=[{
 ]
 
 const Skills = () => {
-  const [open, setOpen] = useState(false);
-  const [openFramework, setOpenFramework] = useState(false);
-  const [openTools, setOpenTools] = useState(false);
-  const [openSoft, setOpenSoft] = useState(false);
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white px-4 py-12 flex flex-col  justify-center items-center">
