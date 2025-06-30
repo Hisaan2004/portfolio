@@ -18,10 +18,6 @@ const description=[{
   desc: ["Problem Solving", "Teamwork", "Communication", "Time Management"],
 }
 ]
-const tec = ["HTML5", "CSS3", "JavaScript", "C++", "Python", "C", "SQL"];
-const framework = ["React.js", "Next.js", "Tailwind CSS"];
-const tools = ["VS Code", "Git & GitHub", "Figma"];
-const softskills = ["Problem Solving", "Teamwork", "Communication", "Time Management"];
 
 const Skills = () => {
   const [open, setOpen] = useState(false);
