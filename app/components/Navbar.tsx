@@ -1,9 +1,13 @@
 'use client';
-
 import React from 'react';
 import Link from "next/link";
 import { Bars3Icon } from '@heroicons/react/24/outline';
-
+//import Button from "@/app/widget/Button";
+import  Icon from '@/app/widget/Icon'
+import Toggleicon from '@/app/widget/Toggleicon';
+import Text from '@/app/widget/Text'
+import Hyperlinks from '../widget/Hyperlinks';
+import Unorderlist from '../widget/Underorserlist';
 const navbarelement = [
   { label: "About me", id: "Intropage" },
   { label: "Skills", id: "Skills" },
@@ -32,28 +36,27 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
           />
         </Link>
         {navbarelement.map((item, index) => (
-          <a
+          <Hyperlinks
             key={index}
             href={`#${item.id}`}
             className="text-black dark:text-white font-bold hover:bg-gray-400 hover:border-b-2  px-2 py-1 dark:border-b-2 dark:border-white"
           >
             {item.label}
-          </a>
+          </Hyperlinks>
         ))}
-        <button
+        
+        <span className=' flex flex-row absolute right-4'>
+          <Text className='font-semibold mt-1 text-black dark:text-white'>Change Theme:</Text>
+        <Toggleicon enabled={darkmode}
           onClick={() => setDarkmode(prev => !prev)}
-          className="bg-black text-white h-10 w-30 absolute right-2 rounded hover:bg-gray-400 dark:border-2 dark:border-white active:scale-95"
-        >
-          {darkmode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+           >
+        </Toggleicon>
+        </span>
       </div>
 
       {/* Mobile Navbar */}
       <div className="md:hidden bg-gray-300 dark:bg-black w-full h-16 flex items-center justify-between px-4 relative">
-        <button onClick={toggledown}>
-          <Bars3Icon className="h-8 w-8 text-black dark:text-white" />
-        </button>
-
+        <Icon icon={Bars3Icon} className="h-9 w-9 " onClick={toggledown} />
         <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
           <img
             src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
@@ -61,29 +64,33 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
             className="h-10 w-10 rounded"
           />
         </Link>
-
         {open && (
           <div className="absolute top-16 left-0 w-full bg-black p-4 z-50">
-            <ul className="space-y-4">
+            <Unorderlist >
               {navbarelement.map((item, index) => (
                 <li key={index}>
-                  <a
+                  <Hyperlinks
                     href={`#${item.id}`}
                     className="block text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block"
                   >
                     {item.label}
-                  </a>
+                  </Hyperlinks>
                 </li>
               ))}
-            </ul>
+            </Unorderlist>
           </div>
         )}
-        <button
+       {/*} <Toggleicon enabled={darkmode}
           onClick={() => setDarkmode(prev => !prev)}
-          className="bg-black text-white h-10 w-30 absolute right-2 rounded hover:bg-gray-400 dark:border-2 dark:border-white active:scale-95"
-        >
-          {darkmode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+           >
+        </Toggleicon>*/}
+        <span className=' flex flex-row absolute right-4'>
+          <Text className='text-base font-bold mt-1 text-black dark:text-white'>Change Theme:</Text>
+        <Toggleicon enabled={darkmode}
+          onClick={() => setDarkmode(prev => !prev)}
+           >
+        </Toggleicon>
+        </span>
       </div>
     </div>
   );

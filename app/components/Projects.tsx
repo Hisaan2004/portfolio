@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Text from '@/app/widget/Text'
 const projectData = [
   {
     title: "Compiler Design Project",
@@ -8,8 +8,8 @@ const projectData = [
   },
 
   {
-  title: "Spell Checker",
-  description:
+    title: "Spell Checker",
+    description:
     "A Python-based spell checker that identifies and corrects misspelled words and grammar using Levenshtein Distance. Utilizes NLP libraries such as TextBlob and NLTK for enhanced accuracy. Technologies used: Python, NLP, Levenshtein, TextBlob, NLTK.",
 },
 
@@ -44,18 +44,18 @@ const Projects = () => {
       style={{ backgroundImage: "url('/p2.jpg')" }}
     >
       <div className=" bg-white dark:bg-black bg-opacity-80 w-full py-10 px-4 md:px-16">
-        <h1 className="text-black dark:text-white text-4xl font-bold text-center mb-10">
+        <Text  variant='heading1'className="text-center mb-10">
           Projects
-        </h1>
+        </Text>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projectData.map((project, index) => (
             <div
               key={index}
-              className=" bg-white border-2 border-black rounded-lg p-6  border border-2 border-black  dark:border-0"
+              className=" bg-white border-2 border-black rounded-lg p-6  border-black  dark:border-0 text-black "
             >
-              <h2 className="text-2xl font-bold text-black mb-2">{project.title}</h2>
-              <p className="text-gray-800 text-base">{project.description}</p>
+              <Text variant='heading2' >{project.title}</Text>
+              <Text >{project.description}</Text>
             </div>
           ))}
         </div>

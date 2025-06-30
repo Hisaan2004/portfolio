@@ -2,6 +2,9 @@ import React from 'react'
 import Link from "next/link";
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import  Icon from '@/app/widget/Icon';
+import  Text from '@/app/widget/Text';
+import Hyperlinks from '@/app/widget/Hyperlinks';
 const Footer = () => {
   return (
     <div className=" w-full  bg-gray-200 dark:bg-black flex flex-col text-black dark:text-white gap-4 p-5 mt-5">
@@ -12,18 +15,18 @@ const Footer = () => {
 
         </img>
       </Link>
-      <h1 className="px-2">Hisaan Sakhawat</h1>
+      <Text className="px-2 font-semibold text-black dark:text-white">Hisaan Sakhawat</Text>
       <div className="flex flex-row gap-3 mt-2 fill-current text-white ml-2">
         <div className="flex space-x-6 mt-2">
-            <a href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="w-6 h-6 text-black dark:text-white hover:text-gray-600" />
-            </a>
-            <a href="www.linkedin.com/in/hisaan-sakhawat-149894300" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="w-6 h-6 text-black dark:text-white hover:text-gray-600" />
-            </a>
-            <a href="mailto:@example.hisaan.sakhawat@gmail.com">
-              <EnvelopeIcon className="w-6 h-6 text-black dark:text-white hover:text-gray-600" />
-            </a>
+            <Hyperlinks href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">
+              <Icon icon={FaGithub} />
+            </Hyperlinks>
+            <Hyperlinks href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">
+              <Icon icon={FaLinkedin} />
+            </Hyperlinks>
+            <Hyperlinks href="https://hisaan.sakhawat@gmail.com" >
+              <Icon icon={EnvelopeIcon} />
+            </Hyperlinks>
           </div>
       </div>
     </div>

@@ -1,15 +1,16 @@
 'use client'
 import React, { useState } from 'react';
-
+import Button from "@/app/widget/Button";
+import Text from "@/app/widget/Text";
 const EducationData = [
   {
-    title: "Primary education",
+    title: "Primary Education",
     year: "2008-2020",
     name: "Divisional Public School",
     description: "From kindergarten to Matriculation",
   },
   {
-    title: "Secondary education",
+    title: "Secondary Education",
     year: "2020-2022",
     name: "Lahore College For Women University",
     description: "FSc Pre-Engineering",
@@ -32,28 +33,28 @@ const Educationpage = () => {
     <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-black   border-b-2 border-t-2 border-black dark:border-white  ">
       
       <div className="flex flex-col items-center gap-6 max-w-2xl w-full px-4">
-        <h1 className="text-4xl text-black dark:text-white font-bold">Education</h1>
+        <Text variant='heading1' >Education</Text>
 
         <div className="bg-gray-200 text-black rounded-lg p-6 w-full shadow-lg">
-          <h2 className="text-3xl font-semibold mb-2">{currentData.title}</h2>
-          <p className="text-xl font-medium">{currentData.name}</p>
-          <p className="text-sm text-gray-800">{currentData.year}</p>
-          <p className="mt-2">{currentData.description}</p>
+          <Text variant='heading2' >{currentData.title}</Text>
+          <Text >{currentData.name}</Text>
+          <Text variant="caption">{currentData.year}</Text>
+          <Text className="mt-2">{currentData.description}</Text>
         </div>
 
         <div className="flex gap-4">
-          <button
+          <Button variant='slideshow'
             onClick={prevSlide}
-            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 border-2 rounded"
+           
           >
             ⬅ Prev
-          </button>
-          <button
+          </Button>
+          <Button variant='slideshow'
             onClick={nextSlide}
-            className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 border-2 rounded"
+           
           >
             Next ➡
-          </button>
+          </Button>
         </div>
       </div>
     </div>

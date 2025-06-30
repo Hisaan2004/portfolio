@@ -1,6 +1,23 @@
 'use client';
 import React, { useState } from 'react';
-
+import Button from "@/app/widget/Button";
+import Text from '@/app/widget/Text'
+import Skillpart from './Skillpart';
+import Unorderlist from '../widget/Underorserlist';
+const description=[{
+  name:'Languages / Technologies',
+  desc:["HTML5", "CSS3", "JavaScript", "C++", "Python", "C", "SQL"],
+},
+ {name:'Frameworks & Libraries',
+  desc:["React.js", "Next.js", "Tailwind CSS"],
+ },
+ {name:'Tools & Platforms',
+  desc:["VS Code", "Git & GitHub", "Figma"],
+ },
+ {name:'Soft Skills',
+  desc: ["Problem Solving", "Teamwork", "Communication", "Time Management"],
+}
+]
 const tec = ["HTML5", "CSS3", "JavaScript", "C++", "Python", "C", "SQL"];
 const framework = ["React.js", "Next.js", "Tailwind CSS"];
 const tools = ["VS Code", "Git & GitHub", "Figma"];
@@ -14,81 +31,12 @@ const Skills = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white px-4 py-12 flex flex-col  justify-center items-center">
-      <h1 className="text-5xl font-bold mb-12 text-center">Skills</h1>
-
+      <Text variant='heading1' className=" mb-12 text-center">Skills</Text>
       <div className="flex flex-col gap-6 w-full max-w-3xl">
-
-        <div className="w-full">
-          <button
-            className="w-full text-left text-2xl font-bold border-b pb-2"
-            onClick={() => setOpen(!open)}
-          >
-            Languages / Technologies
-          </button>
-          {open && (
-            <div className="bg-gray-200 dark:bg-white text-black dark:text-black p-4 rounded-lg mt-2 shadow">
-              <ul className="list-disc pl-5 space-y-1">
-                {tec.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div className="w-full">
-          <button
-            className="w-full text-left text-2xl font-bold border-b pb-2"
-            onClick={() => setOpenFramework(!openFramework)}
-          >
-            Frameworks & Libraries
-          </button>
-          {openFramework && (
-            <div className="bg-gray-200 dark:bg-white text-black dark:text-black p-4 rounded-lg mt-2 shadow">
-              <ul className="list-disc pl-5 space-y-1">
-                {framework.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div className="w-full">
-          <button
-            className="w-full text-left text-2xl font-bold border-b pb-2"
-            onClick={() => setOpenTools(!openTools)}
-          >
-            Tools & Platforms
-          </button>
-          {openTools && (
-            <div className="bg-gray-200 dark:bg-white text-black dark:text-black p-4 rounded-lg mt-2 shadow">
-              <ul className="list-disc pl-5 space-y-1">
-                {tools.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div className="w-full">
-          <button
-            className="w-full text-left text-2xl font-bold border-b pb-2"
-            onClick={() => setOpenSoft(!openSoft)}
-          >
-            Soft Skills
-          </button>
-          {openSoft && (
-            <div className="bg-gray-200 dark:bg-white text-black dark:text-black p-4 rounded-lg mt-2 shadow">
-              <ul className="list-disc pl-5 space-y-1">
-                {softskills.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        {description.map((item,index)=>(
+          <Skillpart key={index} title={item.name} items={item.desc} />
+        ))}
+        
       </div>
     </div>
   );
