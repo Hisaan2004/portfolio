@@ -1,9 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import Button from "@/app/widget/Button";
 import Text from '@/app/widget/Text'
 import Skillpart from './Skillpart';
-import Unorderlist from '../widget/Underorserlist';
 const description=[{
   name:'Languages / Technologies',
   desc:["HTML5", "CSS3", "JavaScript", "C++", "Python", "C", "SQL"],
