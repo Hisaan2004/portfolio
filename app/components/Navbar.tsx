@@ -61,9 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
           <img
             src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
             alt="homepage"
-            height={10}
-            width={10}
-            className="rounded"
+            className="h-10 w-10 rounded"
           />
         </Link>
         {open && (
@@ -73,8 +71,8 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
                 <li key={index}>
                   <Hyperlinks
                     href={`#${item.id}`}
-                    className="block text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block"
-                  >
+                    className=" text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block"
+                  >{/*block*/}
                     {item.label}
                   </Hyperlinks>
                 </li>
@@ -87,7 +85,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
            >
         </Toggleicon>*/}
         <span className=' flex flex-row absolute right-4'>
-          <Text className='text-base font-bold mt-1 text-black dark:text-white'>Change Theme:</Text>
+          <Text className='font-semibold mt-1 text-black dark:text-white'>Change Theme:</Text>{/*text-base font-bold mt-1 text-black dark:text-white*/}
         <Toggleicon enabled={darkmode}
           onClick={() => setDarkmode(prev => !prev)}
            >

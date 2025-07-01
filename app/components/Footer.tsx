@@ -7,7 +7,7 @@ import  Text from '@/app/widget/Text';
 import Hyperlinks from '@/app/widget/Hyperlinks';
 const Footer = () => {
   return (
-    <div className=" w-full  bg-gray-200 dark:bg-black flex flex-col text-black dark:text-white gap-4 p-5 mt-5">
+    <div className=" w-full  bg-gray-200 dark:bg-black flex flex-col text-black dark:text-white gap-4 p-5 mt-5 dark:border-t-2 dark:border-white">
       <Link href="/" >
         <img src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
         alt="homepage"

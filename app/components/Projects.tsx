@@ -52,8 +52,8 @@ const Projects = () => {
           {projectData.map((project, index) => (
             <div
               key={index}
-              className=" bg-white border-2 border-black rounded-lg p-6  border-black  dark:border-0 text-black "
-            >
+              className=" bg-white border-2 border-black rounded-lg p-6  dark:border-0 text-black "
+            >{/*border-black*/}
               <Text variant='heading2' >{project.title}</Text>
               <Text >{project.description}</Text>
             </div>
