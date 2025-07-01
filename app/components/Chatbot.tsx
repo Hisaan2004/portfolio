@@ -3,10 +3,10 @@ import Text from '@/app/widget/Text';
 import Images from '@/app/widget/Images';
 import React, { useState } from 'react';
 import Button from '@/app/widget/Button';
-type prop={
+type Prop={
   open:boolean;
 };
-const Chatbot: React.FC<prop> = ({ open }) => {
+const Chatbot: React.FC<Prop> = ({ open }) => {
   if (!open) return null;
   const [message, setMessage] = useState('');
   //const [loading, setLoading] = useState(false);
