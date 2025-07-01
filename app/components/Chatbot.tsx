@@ -7,13 +7,12 @@ type Prop={
   open:boolean;
 };
 const Chatbot: React.FC<Prop> = ({ open }) => {
-  if (!open) return null;
   const [message, setMessage] = useState('');
   //const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<
     { sender: 'user' | 'bot'; text: string }[]
   >([]);
-
+    if (!open) return null;
   const handleSend = async () => {
     if (!message.trim()) return;
     setMessages((prev) => [...prev, { sender: 'user', text: message }]);
