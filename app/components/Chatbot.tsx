@@ -3,8 +3,11 @@ import Text from '@/app/widget/Text';
 import Images from '@/app/widget/Images';
 import React, { useState } from 'react';
 import Button from '@/app/widget/Button';
-
-const Chatbot = () => {
+type prop={
+  open:boolean;
+};
+const Chatbot: React.FC<prop> = ({ open }) => {
+  if (!open) return null;
   const [message, setMessage] = useState('');
   //const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<
@@ -35,6 +38,7 @@ const Chatbot = () => {
   };
 
   return (
+    
     <div className="fixed bottom-20 right-5 bg-gray-100 dark:bg-black p-4 shadow-xl border rounded-xl w-2/3 h-2/3 flex flex-col justify-between">
       <div className="text-center w-full border-b-2 border-black dark:border-white mb-2">
         <Text variant="heading2" className="text-black dark:text-white">Chatbot</Text>
