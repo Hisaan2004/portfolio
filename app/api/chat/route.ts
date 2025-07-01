@@ -2,7 +2,13 @@ import { NextRequest } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const { message } = await req.json();
+    const { messages } = await req.json();
+
+    const prompt = messages
+      .map((msg: { sender: 'user' | 'bot'; text: string }) =>
+        `${msg.sender === 'user' ? 'User' : 'Bot'}: ${msg.text}`
+      )
+      .join('\n') + '\nBot:'; 
 
     const res = await fetch('https://api.cohere.ai/v1/generate', {
       method: 'POST',
@@ -12,7 +18,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model: 'command',
-        prompt: message,
+        prompt: prompt,
         max_tokens: 2000,
         temperature: 0.9,
       }),

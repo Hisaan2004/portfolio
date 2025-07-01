@@ -13,7 +13,7 @@ const Chatbot: React.FC<Prop> = ({ open }) => {
     { sender: 'user' | 'bot'; text: string }[]
   >([]);
     if (!open) return null;
-  const handleSend = async () => {
+  {/*const handleSend = async () => {
     if (!message.trim()) return;
     setMessages((prev) => [...prev, { sender: 'user', text: message }]);
 
@@ -34,8 +34,31 @@ const Chatbot: React.FC<Prop> = ({ open }) => {
     } catch (error) {
       console.error('Error sending message:', error);
     }
-  };
+  };*/}
+const handleSend = async () => {
+  if (!message.trim()) return;
 
+  const userText = message;
+  setMessages((prev) => [...prev, { sender: 'user', text: userText }]);
+  setMessage('');
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: [...messages, { sender: 'user', text: userText }], 
+      }),
+    });
+
+    const data = await res.json();
+    const botText = data.reply;
+
+    setMessages((prev) => [...prev, { sender: 'bot', text: botText }]);
+  } catch (error) {
+    console.error('Error sending message:', error);
+  }
+};
   return (
     
     <div className="fixed bottom-20 right-5 bg-gray-100 dark:bg-black p-4 shadow-xl border rounded-xl w-2/3 h-2/3 flex flex-col justify-between">
