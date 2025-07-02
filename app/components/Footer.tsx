@@ -15,8 +15,8 @@ const Footer = () => {
       </Link>
       <Text className="px-2 font-semibold text-black dark:text-white">Hisaan Sakhawat</Text>
       <div className="flex flex-row gap-3 mt-2 fill-current text-white ml-2">
-        <div className="flex space-x-6 mt-2">
-            <Hyperlinks href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">
+        <div className="flex space-x-6 mt-2 pb-4">
+            <Hyperlinks href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer" >
               <Icon icon={FaGithub} />
             </Hyperlinks>
             <Hyperlinks href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">

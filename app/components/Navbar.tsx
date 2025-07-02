@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
                 <li key={index}>
                   <Hyperlinks
                     href={`#${item.id}`}
-                    className=" text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block"
+                    className=" text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block "
                   >{/*block*/}
                     {item.label}
                   </Hyperlinks>

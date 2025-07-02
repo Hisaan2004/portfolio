@@ -7,7 +7,7 @@ import  Icon from '@/app/widget/Icon';
 import Hyperlinks from '../widget/Hyperlinks';
 const Intropage = () => {
   return (
-    <div className="min-h-screen bg-white px-8 py-12 bg-white dark:bg-black dark:text-white">
+    <div className="min-h-screen bg-white px-8 py-12 dark:bg-black dark:text-white">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         <div className="flex flex-col items-center">
           <Image
@@ -15,7 +15,7 @@ const Intropage = () => {
             alt="profile image"
             width={400}
             height={400}
-            className="rounded-full border-4 border-black object-cover"
+            className='rounded-full'
           />
           <div className="flex space-x-6 mt-5 dark:text-white">
             <Hyperlinks  href="https://github.com/Hisaan2004" target="_blank" rel="noopener noreferrer">
@@ -49,5 +49,4 @@ const Intropage = () => {
     </div>
   );
 };
-
-export default Intropage;
+export default Intropage;   
