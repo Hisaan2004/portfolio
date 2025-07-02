@@ -17,7 +17,7 @@ const EducationData = [
   },
   {
     title: "Bachelors",
-    year: "2022-Current",
+    year: "2022-Present",
     name: "National University of Computer and Emerging Sciences",
     description: "BS in Computer Science",
   },
@@ -41,18 +41,11 @@ const Educationpage = () => {
           <Text variant="caption">{currentData.year}</Text>
           <Text className="mt-2">{currentData.description}</Text>
         </div>
-
-        <div className="flex gap-4">
-          <Button variant='slideshow'
-            onClick={prevSlide}
-           
-          >
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Button variant="slideshow" onClick={prevSlide} >
             ⬅ Prev
           </Button>
-          <Button variant='slideshow'
-            onClick={nextSlide}
-           
-          >
+          <Button variant="slideshow" onClick={nextSlide}>
             Next ➡
           </Button>
         </div>

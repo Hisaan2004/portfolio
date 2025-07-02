@@ -13,10 +13,10 @@ type TextVariant =
   | 'caption';
 
 const variantClasses: Record<TextVariant, string> = {
-  heading1: 'text-4xl font-bold ',
-  heading2: 'text-xl lg:text-2xl font-semibold ',
+  heading1: 'text-2xl md:text-4xl font-bold ',
+  heading2: 'text-lg md:text-2xl font-semibold ',
   paragraph: 'text-base text-black font-medium',
-  caption: 'text-sm text-gray-500',
+  caption: 'text-sm ',
 };
 const Text = ({ children, variant = 'paragraph', className = '' }: Props) => {
     const style=variantClasses[ variant as TextVariant]||""

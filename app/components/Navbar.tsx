@@ -26,7 +26,6 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
 
   return (
     <div className="bg-gray-200 dark:border-2 dark:border-white">
-      {/* Desktop Navbar */}
       <div className="hidden md:flex bg-gray-200 dark:bg-black w-full h-16 items-center px-4 gap-6">
         <Link href="/">
           <img
@@ -53,10 +52,8 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
         </Toggleicon>
         </span>
       </div>
-
-      {/* Mobile Navbar */}
-      <div className="md:hidden bg-gray-300 dark:bg-black w-full h-16 flex items-center justify-between px-4 relative">
-        <Icon icon={Bars3Icon} className="h-9 w-9 " onClick={toggledown} />
+     <div className="  md:hidden bg-gray-200 dark:bg-black w-full h-16 flex items-center justify-between px-4 relative flex-grow ">
+        <Icon icon={Bars3Icon} className=" w-6 h-6 md:h-9 md:w-9 " onClick={toggledown} />
         <Link href="/" className="absolute left-1/2 transform -translate-x-1/2">
           <img
             src="https://i.pinimg.com/736x/57/ae/88/57ae8888c6b1601bc3db106e48bac706.jpg"
@@ -80,13 +77,9 @@ const Navbar: React.FC<NavbarProps> = ({ darkmode, setDarkmode }) => {
             </Unorderlist>
           </div>
         )}
-       {/*} <Toggleicon enabled={darkmode}
-          onClick={() => setDarkmode(prev => !prev)}
-           >
-        </Toggleicon>*/}
+       
         <span className=' flex flex-row absolute right-4'>
-          <Text className='font-semibold mt-1 text-black dark:text-white'>Change Theme:</Text>{/*text-base font-bold mt-1 text-black dark:text-white*/}
-        <Toggleicon enabled={darkmode}
+         <Toggleicon enabled={darkmode}
           onClick={() => setDarkmode(prev => !prev)}
            >
         </Toggleicon>
