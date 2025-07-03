@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,20 +36,24 @@ export async function POST(req: NextRequest) {
   Frameworks & Libraries: React.js, Next.js, Tailwind CSS
   Tools & Platforms: VS Code, Git & GitHub, Figma
   Soft Skills:Problem Solving, Teamwork, Communication, Time Management`;
-    const prompt =`System: ${systemPrompt}\n` + messages
-      .map((msg: { sender: 'user' | 'bot'; text: string }) =>
-        `${msg.sender === 'user' ? 'User' : 'Bot'}: ${msg.text}`
-      )
-      .join('\n') + '\nBot:'; 
+    const prompt =
+      `System: ${systemPrompt}\n` +
+      messages
+        .map(
+          (msg: { sender: "user" | "bot"; text: string }) =>
+            `${msg.sender === "user" ? "User" : "Bot"}: ${msg.text}`,
+        )
+        .join("\n") +
+      "\nBot:";
 
-    const res = await fetch('https://api.cohere.ai/v1/generate', {
-      method: 'POST',
+    const res = await fetch("https://api.cohere.ai/v1/generate", {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.COHERE_API_KEY}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: 'command',
+        model: "command",
         prompt: prompt,
         max_tokens: 2000,
         temperature: 0.9,
@@ -57,17 +61,17 @@ export async function POST(req: NextRequest) {
     });
 
     const data = await res.json();
-    const text = data.generations?.[0]?.text || 'No response';
+    const text = data.generations?.[0]?.text || "No response";
 
     return new Response(JSON.stringify({ reply: text }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.error('API error:', err);
-    return new Response(JSON.stringify({ error: 'Something went wrong' }), {
+    console.error("API error:", err);
+    return new Response(JSON.stringify({ error: "Something went wrong" }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }
