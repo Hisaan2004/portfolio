@@ -6,7 +6,7 @@ type ToggleProps = {
   onClick: () => void;
 };
 
-const Toggleicon = ({ enabled, onClick }: ToggleProps) => {
+const ToggleIcon = ({ enabled, onClick }: ToggleProps) => {
   return (
     <button
       onClick={onClick}
@@ -21,4 +21,4 @@ const Toggleicon = ({ enabled, onClick }: ToggleProps) => {
   );
 };
 
-export default Toggleicon;
+export default ToggleIcon;

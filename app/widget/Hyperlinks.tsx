@@ -15,7 +15,7 @@ type HyperlinkVariant = "default";
 const variantClasses: Record<HyperlinkVariant, string> = {
   default: "text-base font-bold ",
 };
-const Hyperlinks = ({
+const HyperLinks = ({
   children,
   variant = "default",
   href,
@@ -38,4 +38,4 @@ const Hyperlinks = ({
   );
 };
 
-export default Hyperlinks;
+export default HyperLinks;
