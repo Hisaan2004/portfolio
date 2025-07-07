@@ -5,7 +5,7 @@ type AiiconProps = {
   onClick: () => void;
 };
 
-const Aiicon = ({ onClick }: AiiconProps) => {
+const AiIcon = ({ onClick }: AiiconProps) => {
   return (
     <div className="fixed bottom-5 right-2 mb-3 mr-2">
       <Bot
@@ -16,4 +16,4 @@ const Aiicon = ({ onClick }: AiiconProps) => {
   );
 };
 
-export default Aiicon;
+export default AiIcon;

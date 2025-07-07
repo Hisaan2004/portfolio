@@ -1,9 +1,8 @@
 "use client";
-
 import React, { useState } from "react";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import Chatbotcomp from "@/app/components/Chatbotcomp";
+import Navbar from "@/app/components/layout/NavBar";
+import Footer from "@/app/components/layout/Footer";
+import Chatbotcomp from "@/app/components/chatbot/ChatbotComp";
 
 export default function Theme({ children }: { children: React.ReactNode }) {
   const [darkmode, setDarkmode] = useState(false);
