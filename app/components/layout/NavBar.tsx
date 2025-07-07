@@ -3,9 +3,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/app/widget/Icon";
-import Toggleicon from "@/app/widget/ToggleIcon";
+import ToggleIcon from "@/app/widget/ToggleIcon";
 import Text from "@/app/widget/Text";
-import Hyperlinks from "@/app/widget/HyperLinks";
+import HyperLinks from "@/app/widget/HyperLinks";
 import Unorderlist from "@/app/widget/UnderOrderList";
 const navbarElement = [
   { label: "About me", id: "Intropage" },
@@ -36,23 +36,23 @@ function Navbar({ darkmode, setDarkmode }: NavbarProps) {
           />
         </Link>
         {navbarElement.map((item, index) => (
-          <Hyperlinks
+          <HyperLinks
             key={index}
             href={`#${item.id}`}
             className="text-black dark:text-white font-bold hover:bg-gray-400 hover:border-b-2  px-2 py-1 dark:border-b-2 dark:border-white"
           >
             {item.label}
-          </Hyperlinks>
+          </HyperLinks>
         ))}
 
         <span className=" flex flex-row absolute right-4">
           <Text className="font-semibold mt-1 text-black dark:text-white">
             Change Theme:
           </Text>
-          <Toggleicon
+          <ToggleIcon
             enabled={darkmode}
             onClick={() => setDarkmode((prev) => !prev)}
-          ></Toggleicon>
+          ></ToggleIcon>
         </span>
       </div>
       <div className="  md:hidden bg-gray-200 dark:bg-black w-full h-16 flex items-center justify-between px-4 relative flex-grow ">
@@ -75,13 +75,12 @@ function Navbar({ darkmode, setDarkmode }: NavbarProps) {
             <Unorderlist>
               {navbarElement.map((item, index) => (
                 <li key={index}>
-                  <Hyperlinks
+                  <HyperLinks
                     href={`#${item.id}`}
                     className=" text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block "
                   >
-                    {/*block*/}
                     {item.label}
-                  </Hyperlinks>
+                  </HyperLinks>
                 </li>
               ))}
             </Unorderlist>
@@ -89,10 +88,10 @@ function Navbar({ darkmode, setDarkmode }: NavbarProps) {
         )}
 
         <span className=" flex flex-row absolute right-4">
-          <Toggleicon
+          <ToggleIcon
             enabled={darkmode}
             onClick={() => setDarkmode((prev) => !prev)}
-          ></Toggleicon>
+          ></ToggleIcon>
         </span>
       </div>
     </div>

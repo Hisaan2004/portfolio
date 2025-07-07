@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/app/widget/Icon";
 import Text from "@/app/widget/Text";
-import Hyperlinks from "@/app/widget/HyperLinks";
+import HyperLinks from "@/app/widget/HyperLinks";
 function Footer() {
   return (
     <div className=" w-full  bg-gray-200 dark:bg-black flex flex-col text-black dark:text-white gap-4 p-5 mt-5 dark:border-t-2 dark:border-white">
@@ -21,23 +21,23 @@ function Footer() {
       </Text>
       <div className="flex flex-row gap-3 mt-2 fill-current text-white ml-2">
         <div className="flex space-x-6 mt-2 pb-4">
-          <Hyperlinks
+          <HyperLinks
             href="https://github.com/Hisaan2004"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Icon iconName="FaGithub" />
-          </Hyperlinks>
-          <Hyperlinks
+          </HyperLinks>
+          <HyperLinks
             href="https://www.linkedin.com/in/hisaan-sakhawat-149894300"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Icon iconName="FaLinkedin" />
-          </Hyperlinks>
-          <Hyperlinks href="https://hisaan.sakhawat@gmail.com">
+          </HyperLinks>
+          <HyperLinks href="https://hisaan.sakhawat@gmail.com">
             <Icon iconName="EnvelopeIcon" />
-          </Hyperlinks>
+          </HyperLinks>
         </div>
       </div>
     </div>
