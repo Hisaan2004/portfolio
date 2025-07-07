@@ -20,7 +20,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ response: reply });
 
   } catch (err) {
-    console.error('Error:', err);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error('Error:', errorMessage);
     return NextResponse.json({ response: 'Internal server error' }, { status: 500 });
   }
 }
