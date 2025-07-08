@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Bot, User } from "lucide-react";
 import Text from "@/app/widget/Text";
 import Button from "@/app/widget/Button";
-import { systemPrompt } from "@/app/api/chat/systemPrompt";
+import { SYSTEM_Prompt } from "@/app/api/chat/systemPrompt";
 
 type Prop = {
   open: boolean;
@@ -49,7 +49,7 @@ function Chatbot({ open }: Prop) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
-            { role: "system", content: systemPrompt },
+            { role: "system", content: SYSTEM_Prompt },
             ...messages,
             userMessage,
           ],
