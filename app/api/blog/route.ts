@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { generateBlog } from "@/lib/generateBlog";
 import { saveToMongo } from "@/lib/saveToMongodb";
 import {BLOG_PROMPT} from "@/app/api/blog/blogPrompt";
