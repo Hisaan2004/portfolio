@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { generateBlog } from "@/lib/generateBlog";
 import { saveToMongo } from "@/lib/saveToMongodb";
-import {BLOG_PROMPT} from "@/app/api/chat/blogPrompt";
+import {BLOG_PROMPT} from "@/app/api/blog/blogPrompt";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
