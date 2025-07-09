@@ -7,7 +7,7 @@ export async function GET() {
     const blog = await generateBlog(BLOG_PROMPT);
     await saveToMongo(blog);
     return Response.json({ message: "Blog generated and saved", blog });
-  } catch (err) {
+  }catch (err) {
     console.error("Error:", err);
     return Response.json({ error: "Failed to generate or save blog" });
   }
