@@ -1,5 +1,5 @@
 export const BLOG_PROMPT = `
-Write a blog post on the any of these topics:Next.js,Tailwind,Portfolio
+Write a blog post on the any topic but keep in mind that the topic should be decent.
 Return valid JSON in the following format:
 {
   "title": "...",
@@ -8,7 +8,7 @@ Return valid JSON in the following format:
   "tags": ["...", "..."],
   "category": "...",
   "date": "ISO date string",
-  "author": "AI Bot",
+  "author": "...",
   "content": "<p>...</p>"
 }
   `;

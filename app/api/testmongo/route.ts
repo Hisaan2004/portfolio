@@ -4,12 +4,12 @@ import { connectToDB } from "@/lib/db";
 export async function GET() {
   try {
     await connectToDB();
-    return NextResponse.json({ result: "MongoDB connected ✅" });
+    return NextResponse.json({ result: "MongoDB connected" });
   } catch (error) {
-    console.log("Error",error);
+    console.log("Error", error);
     return NextResponse.json(
-      { result: "MongoDB connection failed ❌" },
-      { status: 500 }
+      { result: "MongoDB connection failed" },
+      { status: 500 },
     );
   }
 }
