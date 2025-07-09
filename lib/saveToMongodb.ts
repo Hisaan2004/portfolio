@@ -9,8 +9,12 @@ export type BlogPost = {
   author: string;
   content: string;
 };
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error("❌ MONGODB_URI is not defined in .env.local");
+}
+const client = new MongoClient(uri);
 export async function saveToMongo(blogData:BlogPost) {
-  const client = new MongoClient(process.env.MONGODB_URI as string);
   try {
     await client.connect();
     const db = client.db(process.env.MONGODB_DB);
