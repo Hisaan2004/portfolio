@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDB } from "@/lib/db";
 
-type Context = {
-  params: {
-    slug: string;
-  };
-};
-
-export async function GET(req: NextRequest, context: Context) {
-  const { slug } = context.params;
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  const { slug } = params;
 
   try {
     const db = await connectToDB();
