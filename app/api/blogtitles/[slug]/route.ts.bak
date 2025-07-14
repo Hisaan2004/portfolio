@@ -2,7 +2,7 @@
 import { connectToDB } from "@/lib/db";
 
 export async function GET(
-  _: NextRequest,
+  req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   const { slug } = params;
@@ -20,4 +20,5 @@ export async function GET(
     console.error("Server error:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
-}*/}
+}
+*/}
