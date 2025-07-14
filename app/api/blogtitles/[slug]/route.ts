@@ -3,10 +3,9 @@ import { connectToDB } from "@/lib/db";
 
 export async function GET(
   req: NextRequest,
-  context: { params: { slug: string } },
+  context: { params: { slug: string } }
 ) {
   const { slug } = context.params;
-  console.log("Received slug:", slug);
 
   try {
     const db = await connectToDB();
@@ -18,7 +17,7 @@ export async function GET(
 
     return NextResponse.json(blog);
   } catch (error) {
-    console.error("error",error);
+    console.error("Server error:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
