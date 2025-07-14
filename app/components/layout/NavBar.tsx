@@ -12,6 +12,7 @@ const navbarElement = [
   { label: "Skills", id: "Skills" },
   { label: "Projects", id: "Projects" },
   { label: "Education", id: "Educationpage" },
+  { label: "Blog", id: "Blogpage" },
 ];
 
 type NavbarProps = {

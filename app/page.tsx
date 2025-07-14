@@ -4,7 +4,9 @@ import Intropage from "@/app/components/intropage/IntroPage";
 import Skills from "@/app/components/skill/Skills";
 import EducationPage from "@/app/components/education/EducationPage";
 import Projects from "@/app/components/project/Projects";
-export const metadata = {
+import BlogPage from "./components/BlogPage";
+{
+  /*export const metadata = {
   title: "Hisaan's Portfolio",
   description: "This is the website to find Hisaan's portfolio.",
   keywords: ["nextjs", "website", "portfolio"],
@@ -34,7 +36,8 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-};
+};*/
+}
 export default function Home() {
   return (
     <>
@@ -49,6 +52,9 @@ export default function Home() {
       </div>
       <div id="Skills">
         <Skills />
+      </div>
+      <div id="Blogpage">
+        <BlogPage />
       </div>
     </>
   );

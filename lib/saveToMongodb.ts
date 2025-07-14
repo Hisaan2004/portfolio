@@ -1,4 +1,5 @@
-import { MongoClient } from "mongodb";
+import { connectToDB } from "@/lib/db";
+import { title } from "process";
 export type BlogPost = {
   title: string;
   slug: string;
@@ -9,19 +10,27 @@ export type BlogPost = {
   author: string;
   content: string;
 };
-const uri = process.env.MONGODB_URI;
-if (!uri) {
-  throw new Error("MONGODB_URI is not defined in .env.local");
-}
-const client = new MongoClient(uri);
+
 export async function saveToMongo(blogData: BlogPost) {
   try {
-    await client.connect();
-    const db = client.db(process.env.MONGODB_DB);
+    const db = await connectToDB();
     const collection = db.collection("blogs");
     await collection.insertOne(blogData);
     console.log("Blog saved to MongoDB.");
-  } finally {
-    await client.close();
+  } catch (error) {
+    console.error("error", error);
+  }
+}
+export async function getTitles(): Promise<string[]> {
+  try {
+    const db = await connectToDB();
+    const titles = await db
+      .collection("blogs")
+      .find({}, { projection: { _id: 0, title: 1 } })
+      .toArray();
+    return titles.map((item) => item.title);
+  } catch (error) {
+    console.error("Failed to fetch titles:", error);
+    return [];
   }
 }
