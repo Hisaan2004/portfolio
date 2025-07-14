@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectToDB } from "@/lib/db";
 
 export async function GET(
-  req: NextRequest,
+  _: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   const { slug } = params;
