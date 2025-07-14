@@ -17,7 +17,7 @@ const variantClasses: Record<TextVariant, string> = {
   heading1: "text-2xl md:text-4xl font-bold ",
   heading2: "text-lg md:text-2xl font-semibold ",
   paragraph: "text-base text-black font-medium",
-  caption: "text-sm ",
+  caption: "text-sm text-gray-400 ",
   extralarge: "text-4xl text-6xl",
 };
 const Text = ({ children, variant = "paragraph", className = "" }: Props) => {

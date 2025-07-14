@@ -15,6 +15,7 @@ export async function GET() {
             date: 1,
             author: 1,
             slug: 1 /*content:1*/,
+            ogImage:1,
           },
         },
       )

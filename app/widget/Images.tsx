@@ -8,12 +8,13 @@ type Props = {
   variant?: string;
   className?: string;
 };
-type imageVariant = "profileicon" | "profile";
+type imageVariant = "profileicon" | "profile"|"blogimage";
 
 const variantClasses: Record<imageVariant, string> = {
   profile: "w-[400] h-[400] rounded-full border-4 border-black object-cover",
   profileicon:
     "w-[30] h-[30] mr-2 rounded-full object-cover border-2 border-black",
+  blogimage:"object-cover rounded",
 };
 const Images = ({ image, names, variant, className = "" }: Props) => {
   const style = variantClasses[variant as imageVariant] || "";

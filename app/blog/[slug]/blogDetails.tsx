@@ -8,17 +8,23 @@ type Blog = {
   date: string;
   author: string;
   content: string;
+  ogImage:string;
 };
 
 const BlogDetails = ({ blog }: { blog: Blog }) => {
   return (
     <div className="min-h-screen px-6 py-8 max-w-3xl mx-auto bg-white dark:bg-black">
+      <img
+    src={blog.ogImage}
+    alt={blog.title}
+    className="  object-cover rounded-md w-full shrink-0 mb-2"
+  />
       <Text variant="heading" className="text-3xl font-bold mb-2">
         {blog.title}
       </Text>
-      <p className="text-sm text-gray-500 mb-4">
+      <Text variant='caption'className=" mb-4">
         {blog.author} | {blog.date}
-      </p>
+      </Text>
       <div className="prose dark:prose-invert">
         <ReactMarkdown>{blog.content}</ReactMarkdown>
       </div>
