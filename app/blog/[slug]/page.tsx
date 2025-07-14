@@ -71,7 +71,7 @@ export default async function BlogPage({
   if (!blog) return notFound();
 
   // ✅ Fix: Remove _id to prevent Next.js RSC prop serialization error
-  const { _id, ...cleanBlog } = blog;
+  const { _id:_, ...cleanBlog } = blog;
 
   return <BlogDetails blog={cleanBlog} />;
 }

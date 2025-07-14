@@ -1,5 +1,4 @@
 import { connectToDB } from "@/lib/db";
-import { title } from "process";
 export type BlogPost = {
   title: string;
   slug: string;
