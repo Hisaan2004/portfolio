@@ -17,8 +17,6 @@ type Blog = {
   ogImage: string;
   imageAlt: string;
 };
-
-// ✅ Fix: Await params (some frameworks pass it as a Promise in RSC)
 export async function generateMetadata({
   params,
 }: {
@@ -56,8 +54,6 @@ export async function generateMetadata({
     },
   };
 }
-
-// ✅ Fix: Await params here too
 export default async function BlogPage({
   params,
 }: {
@@ -66,12 +62,9 @@ export default async function BlogPage({
   const { slug } = await params;
 
   const db = await connectToDB();
-  const blog = await db.collection<Blog>("blogs").findOne({ slug });
+  const blog = await db.collection<Blog>("blogs").findOne({ slug }, { projection: { _id: 0 } });
 
   if (!blog) return notFound();
 
-  // ✅ Fix: Remove _id to prevent Next.js RSC prop serialization error
-  const { _id:_, ...cleanBlog } = blog;
-
-  return <BlogDetails blog={cleanBlog} />;
+  return <BlogDetails blog={blog} />;
 }

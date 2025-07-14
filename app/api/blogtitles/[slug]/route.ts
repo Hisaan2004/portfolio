@@ -17,7 +17,8 @@ export async function GET(
     }
 
     return NextResponse.json(blog);
-  } catch (_) {
+  } catch (error) {
+    console.error("error",error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
