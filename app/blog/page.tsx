@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Text from '@/app/widget/Text';
 import Button from '@/app/widget/Button';
 import Link from 'next/link';
-import Images from '@/app/widget/Images';
 
 type Blog = {
   title: string;
