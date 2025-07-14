@@ -8,6 +8,14 @@ export type BlogPost = {
   date: string;
   author: string;
   content: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
+  canonicalUrl: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+  imageAlt: string;
 };
 
 export async function saveToMongo(blogData: BlogPost) {
