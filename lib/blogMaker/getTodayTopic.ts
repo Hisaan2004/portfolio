@@ -20,7 +20,7 @@ const arrayB = [
   };
 }*/}
 
-export function getTodayTopic(startDateStr = "2024-01-01") {
+export function getTodayTopic(startDateStr = "2024-07-16") {
   const totalCombinations = arrayA.length * arrayB.length;
   const startDate = new Date(startDateStr);
   const today = new Date();
