@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Bot, User } from "lucide-react";
 import Text from "@/app/widget/Text";
 import Button from "@/app/widget/Button";
-import { SYSTEM_Prompt } from "@/app/api/chat/systemPrompt";
-
+import { SYSTEM_PROMPT } from "@/app/api/chatbot/systemPrompt";
 type Prop = {
   open: boolean;
 };
@@ -44,12 +43,12 @@ function Chatbot({ open }: Prop) {
     setInput("");
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch("/api/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
-            { role: "system", content: SYSTEM_Prompt },
+            { role: "system", content: SYSTEM_PROMPT },
             ...messages,
             userMessage,
           ],

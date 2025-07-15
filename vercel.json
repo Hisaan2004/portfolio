@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "/api/blog",
+      "path": "/api/cron/generateblog",
       "schedule": "45 12 * * *"
     }
   ]

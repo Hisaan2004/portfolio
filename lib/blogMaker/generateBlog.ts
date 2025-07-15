@@ -1,9 +1,5 @@
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText } from "ai";
-
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_API_KEY as string,
-});
+import { google } from "@/app/service/google";
 export async function generateBlog(prompt: string) {
   try {
     const result = await generateText({
@@ -20,9 +16,13 @@ export async function generateBlog(prompt: string) {
     const jsonStart = reply.indexOf("{");
     const jsonEnd = reply.lastIndexOf("}") + 1;
     const jsonStr = reply.slice(jsonStart, jsonEnd);
-    return JSON.parse(jsonStr);
-  } catch (err) {
-    console.error("Error generating blog:", err);
-    throw err;
+    try {
+      const data = JSON.parse(jsonStr);
+      return { data, success: true };
+    } catch(error) {
+      return { data: error, success: false };
+    }
+  } catch(error) {
+    return { data: error, success: false };
   }
 }

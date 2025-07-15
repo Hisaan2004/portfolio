@@ -1,4 +1,4 @@
-import { connectToDB } from "@/lib/db";
+import { connectToDB } from "@/app/service/mongodb";
 export type BlogPost = {
   title: string;
   slug: string;

@@ -1,11 +1,6 @@
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText } from "ai";
 import { NextResponse } from "next/server";
-
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_API_KEY || "",
-});
-
+import { google } from "@/app/service/google";
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();

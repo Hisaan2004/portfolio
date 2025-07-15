@@ -1,7 +1,7 @@
-import { connectToDB } from "@/lib/db";
+import { connectToDB } from "@/app/service/mongodb";
 import { notFound } from "next/navigation";
 import BlogDetails from "./blogDetails";
-
+import { CONFIG } from "@/config";
 type Blog = {
   title: string;
   slug: string;
@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { slug } = await params;
 
   const db = await connectToDB();
-  const blog = await db.collection<Blog>("blogs").findOne({ slug });
+  const blog = await db.collection<Blog>(CONFIG.COLLECTION_NAME).findOne({ slug });
 
   if (!blog) {
     return { title: "Blog Not Found" };
@@ -62,7 +62,7 @@ export default async function BlogPage({
   const { slug } = await params;
 
   const db = await connectToDB();
-  const blog = await db.collection<Blog>("blogs").findOne({ slug }, { projection: { _id: 0 } });
+  const blog = await db.collection<Blog>(CONFIG.COLLECTION_NAME).findOne({ slug }, { projection: { _id: 0 } });
 
   if (!blog) return notFound();
 

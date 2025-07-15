@@ -1,10 +1,18 @@
-import { NextResponse } from "next/server";
-import { connectToDB } from "@/lib/db";
 
-export async function GET() {
+import { NextResponse } from "next/server";
+import { connectToDB } from "@/app/service/mongodb";
+import { CONFIG } from "@/config";
+
+export async function GET(req: Request) {
   try {
+    const { searchParams } = new URL(req.url);
+
+    const limit = parseInt(searchParams.get("limit") || "2", 10);
+    const skip = parseInt(searchParams.get("skip") || "0", 10);    
+
     const db = await connectToDB();
-    const collection = await db.collection("blogs");
+    const collection = db.collection(CONFIG.COLLECTION_NAME);
+
     const titles = await collection
       .find(
         {},
@@ -14,18 +22,30 @@ export async function GET() {
             title: 1,
             date: 1,
             author: 1,
-            slug: 1 /*content:1*/,
-            ogImage:1,
+            slug: 1,
+            ogImage: 1,
           },
-        },
+        }
       )
+      .skip(skip)
+      .limit(limit)
       .toArray();
-    return NextResponse.json(titles);
+
+    return NextResponse.json({
+      data: titles,
+      pagination: {
+        limit,
+        skip,
+        returned: titles.length,
+      },
+    });
   } catch (error) {
-    console.error("error: ", error);
+    console.error("Error fetching blog titles:", error);
     return NextResponse.json(
       { error: "Failed to fetch blog titles" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
+
+
