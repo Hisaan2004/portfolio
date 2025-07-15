@@ -10,16 +10,6 @@ const arrayB = [
   "form validation", "data fetching", "promises", "generics", "memory management"
 ];
 
-{/*function getCartesianTopic(arr1: string[], arr2: string[], index: number) {
-  const i = Math.floor(index / arr2.length);
-  const j = index % arr2.length;
-  return {
-    topic: `${arr1[i]} – ${arr2[j]}`,
-    technology: arr1[i],
-    concept: arr2[j],
-  };
-}*/}
-
 export function getTodayTopic(startDateStr = "2024-07-16") {
   const totalCombinations = arrayA.length * arrayB.length;
   const startDate = new Date(startDateStr);

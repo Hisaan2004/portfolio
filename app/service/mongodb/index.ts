@@ -8,12 +8,11 @@ if (!URI) {
   throw new Error("MONGODB_URI is not defined in .env.local");
 }
 
-// Global cache to store client across hot reloads (important for development)
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
 
 export async function connectToDB(): Promise<Db> {
-  if (cachedDb) return cachedDb; // Return cached DB if available
+  if (cachedDb) return cachedDb;
 
   try {
     if (!cachedClient) {
