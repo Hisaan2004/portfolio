@@ -11,7 +11,7 @@ type Blog = {
   ogImage:string;
 };
 
-const BlogDetails = ({ blog }: { blog: Blog }) => {
+function BlogDetails({ blog }: { blog: Blog }){
   return (
     <div className="min-h-screen px-6 py-8 max-w-3xl mx-auto bg-white dark:bg-black">
       <img
