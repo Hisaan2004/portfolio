@@ -39,7 +39,7 @@ function Navbar({ darkmode, setDarkmode }: NavbarProps) {
         {navbarElement.map((item, index) => (
           <HyperLinks
             key={index}
-            href={`#${item.id}`}
+            href={`/#${item.id}`}
             className="text-black dark:text-white font-bold hover:bg-gray-400 hover:border-b-2  px-2 py-1 dark:border-b-2 dark:border-white"
           >
             {item.label}
