@@ -60,8 +60,8 @@ function Blogcontent() {
 
       <div className="w-full max-w-4xl px-6 py-8">
         {loading == true && blogs.length === 0 ? (
-          <div className="text-center text-gray-600 mb-2">
-            <Text>Loading</Text>
+          <div className="text-center text-gray-600 mb-5">
+            <Text className="font-bold">Loading</Text>
             <Loading />
           </div>
         ) : (
