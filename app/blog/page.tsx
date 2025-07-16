@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Text from "@/app/widget/Text";
 import Button from "@/app/widget/Button";
 import Link from "next/link";
-
+import Loading from "@/app/widget/Loading";
 type Blog = {
   title: string;
   author: string;
@@ -11,17 +11,18 @@ type Blog = {
   slug: string;
   ogImage: string;
 };
-
 function Blogcontent() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
   const limit = 2;
 
   const fetchBlogs = async () => {
     try {
+      setLoading(true);
       const res = await fetch(
-        `/api/blogtitles?limit=${limit}&skip=${page * limit}`,
+        `/api/blogbasicinfo?limit=${limit}&skip=${page * limit}`,
       );
       if (!res.ok) throw new Error(`API error: ${res.status}`);
       const { data } = await res.json();
@@ -34,6 +35,8 @@ function Blogcontent() {
       if (data.length < limit) setHasMore(false);
     } catch (error) {
       console.error("Error fetching blog titles:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,8 +59,11 @@ function Blogcontent() {
       </div>
 
       <div className="w-full max-w-4xl px-6 py-8">
-        {blogs.length === 0 ? (
-          <div className="text-center text-gray-600">Loading...</div>
+        {loading == true && blogs.length === 0 ? (
+          <div className="text-center text-gray-600 mb-2">
+            <Text>Loading</Text>
+            <Loading />
+          </div>
         ) : (
           blogs.map((blog) => (
             <div
@@ -87,7 +93,7 @@ function Blogcontent() {
           ))
         )}
 
-        {hasMore && (
+        {blogs.length > 0 && hasMore && (
           <div className="text-center mt-6">
             <Button
               variant="modebutton"
