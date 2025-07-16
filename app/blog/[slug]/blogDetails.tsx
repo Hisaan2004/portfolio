@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw"; 
 import Text from "@/app/widget/Text";
 type Blog = {
   title: string;
@@ -26,7 +27,7 @@ function BlogDetails({ blog }: { blog: Blog }){
         {blog.author} | {blog.date}
       </Text>
       <div className="prose dark:prose-invert">
-        <ReactMarkdown>{blog.content}</ReactMarkdown>
+        <ReactMarkdown  rehypePlugins={[rehypeRaw]}>{blog.content}</ReactMarkdown>
       </div>
     </div>
   );

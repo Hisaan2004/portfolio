@@ -3,6 +3,6 @@ export const MONGODB_DB = process.env.MONGODB_DB!;
 export const CONFIG = {
   URI: process.env.MONGODB_URI!,
   DB_NAME: process.env.MONGODB_DB!,
-  GOOGLE_API_KEY:process.env.GOOGLE_API_KEY!,
+  GOOGLE_API:process.env.GOOGLE_API_KEY!,
   COLLECTION_NAME: "blogs",
 };
