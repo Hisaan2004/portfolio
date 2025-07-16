@@ -4,7 +4,7 @@ import { google } from "@/app/service/google";
 //import { createGoogleGenerativeAI } from "@ai-sdk/google";
 //import {CONFIG} from '@/config';
 //export const google = createGoogleGenerativeAI({
- // apiKey: CONFIG.GOOGLE_API as string,
+// apiKey: CONFIG.GOOGLE_API as string,
 //});
 export async function POST(req: Request) {
   try {

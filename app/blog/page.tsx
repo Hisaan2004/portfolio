@@ -1,8 +1,8 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Text from '@/app/widget/Text';
-import Button from '@/app/widget/Button';
-import Link from 'next/link';
+"use client";
+import React, { useEffect, useState } from "react";
+import Text from "@/app/widget/Text";
+import Button from "@/app/widget/Button";
+import Link from "next/link";
 
 type Blog = {
   title: string;
@@ -19,21 +19,23 @@ function Blogcontent() {
   const limit = 2;
 
   const fetchBlogs = async () => {
-  try {
-    const res = await fetch(`/api/blogtitles?limit=${limit}&skip=${page * limit}`);
-    if (!res.ok) throw new Error(`API error: ${res.status}`);
-    const { data } = await res.json();
+    try {
+      const res = await fetch(
+        `/api/blogtitles?limit=${limit}&skip=${page * limit}`,
+      );
+      if (!res.ok) throw new Error(`API error: ${res.status}`);
+      const { data } = await res.json();
 
-    setBlogs((prev) => [
-      ...prev,
-      ...data.filter((b: Blog) => !prev.some((p) => p.slug === b.slug)),
-    ]);
+      setBlogs((prev) => [
+        ...prev,
+        ...data.filter((b: Blog) => !prev.some((p) => p.slug === b.slug)),
+      ]);
 
-    if (data.length < limit) setHasMore(false);
-  } catch (error) {
-    console.error('Error fetching blog titles:', error);
-  }
-};
+      if (data.length < limit) setHasMore(false);
+    } catch (error) {
+      console.error("Error fetching blog titles:", error);
+    }
+  };
 
   useEffect(() => {
     fetchBlogs();
@@ -45,7 +47,10 @@ function Blogcontent() {
         className="w-full h-[300px] bg-cover bg-no-repeat bg-center text-center flex justify-center items-center"
         style={{ backgroundImage: "url('/blogpageimg.jpg')" }}
       >
-        <Text variant="extralarge" className="italic text-white font-bold font-serif mt-2 ml-2 text-4xl">
+        <Text
+          variant="extralarge"
+          className="italic text-white font-bold font-serif mt-2 ml-2 text-4xl"
+        >
           Read Our Blogs
         </Text>
       </div>
@@ -66,7 +71,10 @@ function Blogcontent() {
               />
               <div className="flex flex-col justify-between flex-1">
                 <Link href={`/blog/${blog.slug}`}>
-                  <Button variant="fulllength" className="text-lg font-semibold text-left">
+                  <Button
+                    variant="fulllength"
+                    className="text-lg font-semibold text-left"
+                  >
                     {blog.title}
                   </Button>
                 </Link>
@@ -81,7 +89,10 @@ function Blogcontent() {
 
         {hasMore && (
           <div className="text-center mt-6">
-            <Button variant="modebutton" onClick={() => setPage((prev) => prev + 1)}>
+            <Button
+              variant="modebutton"
+              onClick={() => setPage((prev) => prev + 1)}
+            >
               Load More
             </Button>
           </div>
@@ -89,7 +100,6 @@ function Blogcontent() {
       </div>
     </div>
   );
-};
+}
 
 export default Blogcontent;
-

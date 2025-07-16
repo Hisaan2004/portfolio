@@ -25,7 +25,9 @@ export async function generateMetadata({
   const { slug } = await params;
 
   const db = await connectToDB();
-  const blog = await db.collection<Blog>(CONFIG.COLLECTION_NAME).findOne({ slug });
+  const blog = await db
+    .collection<Blog>(CONFIG.COLLECTION_NAME)
+    .findOne({ slug });
 
   if (!blog) {
     return { title: "Blog Not Found" };
@@ -62,7 +64,9 @@ export default async function BlogPage({
   const { slug } = await params;
 
   const db = await connectToDB();
-  const blog = await db.collection<Blog>(CONFIG.COLLECTION_NAME).findOne({ slug }, { projection: { _id: 0 } });
+  const blog = await db
+    .collection<Blog>(CONFIG.COLLECTION_NAME)
+    .findOne({ slug }, { projection: { _id: 0 } });
 
   if (!blog) return notFound();
 

@@ -1,6 +1,7 @@
-import { getTodayTopic } from "@/lib/blogMaker/getTodayTopic";
+import { getTodayTopic } from "@/lib/blogMaker/prompt/getTodayTopic";
 export function generateBlogPrompt(): string {
   const { day, topic, technology, concept, totalTopics } = getTodayTopic();
+  const date = new Date().toISOString();
 
   return `
 You are given two arrays of programming technologies and syntax concepts.
@@ -17,7 +18,7 @@ Return the result in valid JSON with the following keys:
   "summary": "...",
   "tags": ["...", "..."],
   "category": "${technology}",
-  "date": "date string",
+  "date": "${date},
   "author": "...",
   "content": "...",  // Use **Markdown formatting**: bold, italic, lists, headings, etc.
 
@@ -28,7 +29,7 @@ Return the result in valid JSON with the following keys:
   "canonicalUrl": "...",
   "ogTitle": "...",
   "ogDescription": "...",
-  "ogImage": "https://source.unsplash.com/featured/?${technology},${concept}",
+  "ogImage": "",  //the ogImage should be valid full http url and should be relevent to the topics.
   "imageAlt": "A high-quality image representing ${technology} and ${concept}"
 }
 

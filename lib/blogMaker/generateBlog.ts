@@ -19,10 +19,10 @@ export async function generateBlog(prompt: string) {
     try {
       const data = JSON.parse(jsonStr);
       return { data, success: true };
-    } catch(error) {
+    } catch (error) {
       return { data: error, success: false };
     }
-  } catch(error) {
+  } catch (error) {
     return { data: error, success: false };
   }
 }

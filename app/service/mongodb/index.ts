@@ -1,5 +1,5 @@
 import { MongoClient, Db } from "mongodb";
-import { CONFIG } from '@/config';
+import { CONFIG } from "@/config";
 
 const URI = CONFIG.URI;
 const DB_NAME = CONFIG.DB_NAME;
@@ -28,4 +28,3 @@ export async function connectToDB(): Promise<Db> {
     throw error;
   }
 }
-

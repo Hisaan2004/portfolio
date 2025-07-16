@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw"; 
+import rehypeRaw from "rehype-raw";
 import Text from "@/app/widget/Text";
 type Blog = {
   title: string;
@@ -9,28 +9,30 @@ type Blog = {
   date: string;
   author: string;
   content: string;
-  ogImage:string;
+  ogImage: string;
 };
 
-function BlogDetails({ blog }: { blog: Blog }){
+function BlogDetails({ blog }: { blog: Blog }) {
   return (
     <div className="min-h-screen px-6 py-8 max-w-3xl mx-auto bg-white dark:bg-black">
       <img
-    src={blog.ogImage}
-    alt={blog.title}
-    className="  object-cover rounded-md w-full shrink-0 mb-2"
-  />
+        src={blog.ogImage}
+        alt={blog.title}
+        className="  object-cover rounded-md w-full shrink-0 mb-2"
+      />
       <Text variant="heading" className="text-3xl font-bold mb-2">
         {blog.title}
       </Text>
-      <Text variant='caption'className=" mb-4">
+      <Text variant="caption" className=" mb-4">
         {blog.author} | {blog.date}
       </Text>
       <div className="prose dark:prose-invert">
-        <ReactMarkdown  rehypePlugins={[rehypeRaw]}>{blog.content}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+          {blog.content}
+        </ReactMarkdown>
       </div>
     </div>
   );
-};
+}
 
 export default BlogDetails;
