@@ -18,7 +18,7 @@ function BlogDetails({ blog }: { blog: Blog }) {
       <img
         src={blog.ogImage}
         alt={blog.title}
-        className="  object-cover rounded-md w-full shrink-0 mb-2"
+        className="object-contain rounded-md w-full max-h-[400px] mb-2"
       />
       <Text variant="heading" className="text-3xl font-bold mb-2">
         {blog.title}

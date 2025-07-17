@@ -5,7 +5,7 @@ function Projects() {
   return (
     <div
       className="bg-center min-h-screen flex items-center justify-center"
-      style={{ backgroundImage: "url('/backgroundimg.jpg')" }}
+      style={{ backgroundImage: "url('images/backgroundimg.jpg')" }}
     >
       <div className=" bg-white dark:bg-black bg-opacity-80 w-full py-10 px-4 md:px-16">
         <Text variant="heading1" className="text-center mb-10">
