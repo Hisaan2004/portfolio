@@ -18,7 +18,7 @@ Return the result in valid JSON with the following keys:
   "tags": ["...", "..."],
   "category": "${technology}",
   "date": "${date},
-  "author": "...",
+  "author": "...",//AI Blog Generator
   "content": "...",  // Use **Markdown formatting**: bold, italic, lists, headings, etc.
 
   // SEO Fields

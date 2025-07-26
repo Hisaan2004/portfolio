@@ -78,7 +78,7 @@ function Blogcontent() {
           blogs.map((blog) => (
             <div
               key={blog.slug}
-              className="p-4 my-4 bg-white dark:bg-black rounded-lg shadow-md flex gap-4 items-start dark:border-2 "
+              className="p-4 my-4 bg-white dark:bg-black rounded-lg shadow-md flex flex-col sm:flex-row gap-4 items-center sm:items-start dark:border-2"
             >
               <img
                 src={blog.ogImage}
@@ -94,7 +94,7 @@ function Blogcontent() {
                     {blog.title}
                   </Button>
                 </Link>
-                <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-1">
+                <div className="flex flex-col md:flex-row justify-between text-sm text-gray-500 dark:text-gray-400 mt-1 ">
                   <Text variant="caption">{blog.author}</Text>
                   <Text variant="caption">
                     {new Date(blog.date).toLocaleString("en-US", options)}

@@ -15,10 +15,10 @@ const BlogPage = () => {
           <Text variant="heading1" className="text-center ">
             Blog
           </Text>
-          <Links href="/blog" variant="connecting_link" className="pt-1.5">
+          <Links href="/blog" variant="connecting_link" className="pt-1.5 flex justify-center items-center">
             <Text
               variant="paragraph"
-              className="text-white text-center object-center"
+              className="text-white text-center"
             >
               View Blogs
             </Text>

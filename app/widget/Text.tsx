@@ -16,7 +16,7 @@ type TextVariant =
 const variantClasses: Record<TextVariant, string> = {
   heading1: "text-2xl md:text-4xl font-bold ",
   heading2: "text-lg md:text-2xl font-semibold ",
-  paragraph: "text-base text-black font-medium",
+  paragraph: "text-sm md:text-base text-black font-medium",
   caption: "text-sm text-gray-400 ",
   extralarge: "text-4xl text-6xl",
 };
