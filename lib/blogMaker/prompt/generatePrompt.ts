@@ -10,7 +10,6 @@ Today is **Day ${day} / ${totalTopics}**.
 - Selected topic: **${topic}**
 
 Now write a **rich, SEO-optimized, well-structured blog post** on this topic.
-
 Return the result in valid JSON with the following keys:
 {
   "title": "...",
@@ -29,7 +28,7 @@ Return the result in valid JSON with the following keys:
   "canonicalUrl": "...",
   "ogTitle": "...",
   "ogDescription": "...",
-  "ogImage": "",  //the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser, hosted on a public website (like Unsplash, Pexels, Wikimedia, etc.). Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.
+  "ogImage": "",  //ogImage=give apicture realed to ${technology},${concept},the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser, hosted on a public website (like Unsplash, Pexels, Wikimedia, etc.). Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.it should be working not 404 error.
   "imageAlt": "A high-quality image representing ${technology} and ${concept}"
 }
 

@@ -1,5 +1,6 @@
 "use client";
-{/*import React, { useState } from "react";
+{
+  /*import React, { useState } from "react";
 import Navbar from "@/app/components/layout/NavBar";
 import Footer from "@/app/components/layout/Footer";
 import Chatbotcomp from "@/app/components/chatbot/ChatbotComp";
@@ -21,7 +22,8 @@ export default function Theme({ children }: { children: React.ReactNode }) {
       </html>
     </>
   );
-}*/}
+}*/
+}
 import React, { useEffect, useState } from "react";
 import Navbar from "@/app/components/layout/NavBar";
 import Footer from "@/app/components/layout/Footer";
@@ -35,15 +37,16 @@ export default function Theme({ children }: { children: React.ReactNode }) {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setDarkmode(true);
-   //   document.documentElement.classList.add("dark");
+         document.documentElement.classList.add("dark");
     } else {
       setDarkmode(false);
-     // document.documentElement.classList.remove("dark");
+       document.documentElement.classList.remove("dark");
     }
   }, []);
 
   // Update theme class and localStorage when darkmode changes
-{/*}  useEffect(() => {
+  {
+      useEffect(() => {
     if (darkmode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -51,10 +54,11 @@ export default function Theme({ children }: { children: React.ReactNode }) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  }, [darkmode]);*/}
+  }, [darkmode]);
+  }
 
   return (
-   <>
+    <>
       <html className={darkmode ? "dark" : ""}>
         <body>
           <Navbar darkmode={darkmode} setDarkmode={setDarkmode} />
@@ -68,4 +72,3 @@ export default function Theme({ children }: { children: React.ReactNode }) {
     </>
   );
 }
-

@@ -77,8 +77,8 @@ function Navbar({ darkmode, setDarkmode }: NavbarProps) {
               {navbarElement.map((item, index) => (
                 <li key={index}>
                   <HyperLinks
-                    href={`#${item.id}`}
-                    className=" text-white font-bold hover:bg-gray-700 px-4 py-2  border-b-2 inline-block "
+                    href={`/#${item.id}`}
+                    className=" text-white font-bold hover:bg-gray-700 px-4 py-2  inline-block "
                   >
                     {item.label}
                   </HyperLinks>

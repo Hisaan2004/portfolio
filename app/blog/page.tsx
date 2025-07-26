@@ -11,7 +11,7 @@ type Blog = {
   slug: string;
   ogImage: string;
 };
-const options: Intl.DateTimeFormatOptions= {
+const options: Intl.DateTimeFormatOptions = {
   day: "2-digit",
   month: "long",
   year: "numeric",
@@ -69,14 +69,16 @@ function Blogcontent() {
       <div className="w-full max-w-4xl px-6 py-8">
         {loading == true && blogs.length === 0 ? (
           <div className="text-center text-gray-600 mb-5">
-            <Text className="font-bold text-black dark:text-white">Loading</Text>
+            <Text className="font-bold text-black dark:text-white">
+              Loading
+            </Text>
             <Loading />
           </div>
         ) : (
           blogs.map((blog) => (
             <div
               key={blog.slug}
-              className="p-4 my-4 bg-white dark:bg-black rounded-lg shadow-md flex gap-4 items-start dark:border-2"
+              className="p-4 my-4 bg-white dark:bg-black rounded-lg shadow-md flex gap-4 items-start dark:border-2 "
             >
               <img
                 src={blog.ogImage}
@@ -94,8 +96,10 @@ function Blogcontent() {
                 </Link>
                 <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-1">
                   <Text variant="caption">{blog.author}</Text>
-                  <Text variant="caption">{new Date(blog.date).toLocaleString("en-US", options)}
-                   {/*{blog.date}*/}</Text>
+                  <Text variant="caption">
+                    {new Date(blog.date).toLocaleString("en-US", options)}
+                    {/*{blog.date}*/}
+                  </Text>
                 </div>
               </div>
             </div>
