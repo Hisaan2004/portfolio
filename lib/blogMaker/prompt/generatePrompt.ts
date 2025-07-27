@@ -1,7 +1,8 @@
 import { getTodayTopic } from "@/lib/blogMaker/prompt/getTodayTopic";
-export function generateBlogPrompt(): string {
+export function generateBlogPrompt(images:string[]): string {
   const { day, topic, technology, concept, totalTopics } = getTodayTopic();
   const date = new Date().toISOString();
+  const usedOGImages=images;
 
   return `
 You are given two arrays of programming technologies and syntax concepts.
@@ -28,7 +29,7 @@ Return the result in valid JSON with the following keys:
   "canonicalUrl": "...",
   "ogTitle": "...",
   "ogDescription": "...",
-  "ogImage": "",  //ogImage=give apicture realed to ${technology},${concept},the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser, hosted on a public website (like Unsplash, Pexels, Wikimedia, etc.). Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.it should be working not 404 error.
+  "ogImage": "",  //the OgImage shoudl not be among these ${usedOGImages} ogImage=give apicture realed to ${technology},${concept},the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser, hosted on a public website (like Unsplash, Pexels, Wikimedia, etc.). Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.it should be working not 404 error.
   "imageAlt": "A high-quality image representing ${technology} and ${concept}"
 }
 
