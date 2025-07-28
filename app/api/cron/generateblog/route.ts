@@ -8,7 +8,7 @@ export const revalidate = 0;
 export async function GET() {
   try {
     const images=await getImages();
-    const BLOG_PROMPT = generateBlogPrompt(images);
+    const BLOG_PROMPT = await generateBlogPrompt(images);
     const generatedBlogdata = await generateBlog(BLOG_PROMPT);
     await saveToMongo(generatedBlogdata.data);
     return Response.json({
