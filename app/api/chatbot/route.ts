@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     });
 
     const reply = result.text || "[No reply]";
-
+    console.log("the result is:",reply);
     return NextResponse.json({ response: reply });
   } catch (err) {
     console.error("Error:", err);
