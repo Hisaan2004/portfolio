@@ -4,7 +4,6 @@ import { Bot, User } from "lucide-react";
 import Text from "@/app/widget/Text";
 import Button from "@/app/widget/Button";
 import { SYSTEM_PROMPT } from "@/app/api/chatbot/systemPrompt";
-
 type Prop = {
   open: boolean;
 };
@@ -18,7 +17,6 @@ function Chatbot({ open }: Prop) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
 
-  // Load messages from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem("chatbot_messages");
     if (saved) {
@@ -31,7 +29,6 @@ function Chatbot({ open }: Prop) {
     }
   }, []);
 
-  // Save messages to localStorage when they change
   useEffect(() => {
     if (messages.length > 0) {
       localStorage.setItem("chatbot_messages", JSON.stringify(messages));
@@ -42,8 +39,7 @@ function Chatbot({ open }: Prop) {
     if (!input.trim()) return;
 
     const userMessage: ChatMessage = { role: "user", content: input };
-    const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
 
     try {
@@ -53,31 +49,24 @@ function Chatbot({ open }: Prop) {
         body: JSON.stringify({
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
-            ...updatedMessages,
+            ...messages,
+            userMessage,
           ],
         }),
       });
 
-      if (!res.ok) {
-        throw new Error(`Response error: ${res.status}`);
-      }
-
       const data = await res.json();
-
       const botMessage: ChatMessage = {
         role: "assistant",
-        content: data.response || "No response from AI.",
+        content: data.response,
       };
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error("Error sending message:", err);
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "⚠️ Error getting response from bot." },
-      ]);
     }
   };
+
   return (
     <div
       className={`fixed bottom-20 right-5 transition-opacity duration-300 ${
@@ -136,5 +125,4 @@ function Chatbot({ open }: Prop) {
     </div>
   );
 }
-
 export default Chatbot;
