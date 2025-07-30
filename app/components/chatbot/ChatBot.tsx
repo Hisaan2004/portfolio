@@ -1,4 +1,5 @@
 "use client";
+/*
 import React, { useState, useEffect } from "react";
 import { Bot, User } from "lucide-react";
 import Text from "@/app/widget/Text";
@@ -66,7 +67,86 @@ function Chatbot({ open }: Prop) {
       console.error("Error sending message:", err);
     }
   };
+*/
+import React, { useState, useEffect } from "react";
+import { Bot, User } from "lucide-react";
+import Text from "@/app/widget/Text";
+import Button from "@/app/widget/Button";
+import { SYSTEM_PROMPT } from "@/app/api/chatbot/systemPrompt";
 
+type Prop = {
+  open: boolean;
+};
+
+type ChatMessage = {
+  role: "user" | "assistant" | "system";
+  content: string;
+};
+
+function Chatbot({ open }: Prop) {
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+
+  // Load messages from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("chatbot_messages");
+    if (saved) {
+      try {
+        const parsed: ChatMessage[] = JSON.parse(saved);
+        if (Array.isArray(parsed)) setMessages(parsed);
+      } catch (err) {
+        console.error("Failed to parse saved messages:", err);
+      }
+    }
+  }, []);
+
+  // Save messages to localStorage when they change
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem("chatbot_messages", JSON.stringify(messages));
+    }
+  }, [messages]);
+
+  const handleSend = async () => {
+    if (!input.trim()) return;
+
+    const userMessage: ChatMessage = { role: "user", content: input };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInput("");
+
+    try {
+      const res = await fetch("/api/chatbot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...updatedMessages,
+          ],
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Response error: ${res.status}`);
+      }
+
+      const data = await res.json();
+
+      const botMessage: ChatMessage = {
+        role: "assistant",
+        content: data.response || "No response from AI.",
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (err) {
+      console.error("Error sending message:", err);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "⚠️ Error getting response from bot." },
+      ]);
+    }
+  };
   return (
     <div
       className={`fixed bottom-20 right-5 transition-opacity duration-300 ${
