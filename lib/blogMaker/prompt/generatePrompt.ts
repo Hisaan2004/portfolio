@@ -31,12 +31,12 @@ Return the result in valid JSON with the following keys:
   "canonicalUrl": "...",
   "ogTitle": "...",
   "ogDescription": "...",
-  "ogImage": ${ogImage},give apicture realed to ${technology},${concept},the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser, hosted on a public website (like Unsplash, Pexels, Wikimedia, etc.). Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.it should be working not 404 error.
+  "ogImage": ${ogImage},give a picture related to ${technology},${concept},the ogImage should be valid full http url and should be relevent to the topicsGive me a direct, full https:// URL of a real existing image that I can view in the browser. Only give me one valid image URL that ends with .jpg, .png, or .webp and opens directly.it should be working (not 404 error).
   "imageAlt": "A high-quality image representing ${technology} and ${concept}"
 }
 
 Important:
 - The blog must be rich, Markdown-formatted, and SEO-optimized keep in mind the ogImage should be working http and does not contain 404 error.
-- Use a **highly relevant image** from Unsplash, Pexels, or similar.
+- Use a **highly relevant image** .
 `;
 }

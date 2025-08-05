@@ -1,4 +1,4 @@
-export async function getValidImageURL(
+/*export async function getValidImageURL(
   technology: string,
   concept: string,
   usedImages: string[]
@@ -23,4 +23,48 @@ export async function getValidImageURL(
 
   // Fallback
   return "https://images.unsplash.com/photo-1517694712202-14dd9538aa97";
+}
+*/
+import fetch from 'node-fetch'; // Or global fetch in Next.js 13+
+
+export async function getValidImageURL(technology: string, concept: string, images: string[]): Promise<string> {
+  // Filter images by relevance
+  const relevantImages = images.filter(url => {
+    const lowerUrl = url.toLowerCase();
+    return (
+      lowerUrl.includes(technology.toLowerCase()) ||
+      lowerUrl.includes(concept.toLowerCase())
+    ) && /\.(jpg|jpeg|png|webp)$/.test(lowerUrl);
+  });
+
+  // Shuffle the filtered list
+  const shuffledImages = relevantImages.sort(() => Math.random() - 0.5);
+
+  for (const url of shuffledImages) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      if (res.ok) {
+        return `"${url}"`; // Return as string wrapped in quotes
+      }
+    } catch (err) {
+      // Ignore failed URLs
+      continue;
+    }
+  }
+
+  // Fallback to first working generic image
+  const fallbackImages = images.filter(url => /\.(jpg|jpeg|png|webp)$/.test(url));
+  for (const url of fallbackImages) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      if (res.ok) {
+        return `"${url}"`;
+      }
+    } catch {
+      continue;
+    }
+  }
+
+  // Final fallback
+  return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + ' ' + concept)}"`;
 }
