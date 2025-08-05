@@ -46,7 +46,7 @@ export async function getValidImageURL(technology: string, concept: string, imag
       if (res.ok) {
         return `"${url}"`; // Return as string wrapped in quotes
       }
-    } catch (err) {
+    } catch {
       // Ignore failed URLs
       continue;
     }
