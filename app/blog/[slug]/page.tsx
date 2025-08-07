@@ -20,9 +20,9 @@ type Blog = {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } =  params;
 
   const db = await connectToDB();
   const blog = await db
@@ -59,9 +59,9 @@ export async function generateMetadata({
 export default async function BlogPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } =  params;
 
   const db = await connectToDB();
   const blog = await db
