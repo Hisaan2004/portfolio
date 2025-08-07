@@ -37,7 +37,7 @@ export async function getValidImageURL(technology: string, concept: string, imag
 
   return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + ' ' + concept)}"`;
 }*/
-
+/*
 import fetch from 'node-fetch';
 
 export async function getValidImageURL(
@@ -88,4 +88,41 @@ export async function getValidImageURL(
 
   // Final fallback
   return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + ' ' + concept)}"`;
+}
+*/
+import fetch from "node-fetch";
+
+export async function getValidImageURL(
+  technology: string,
+  concept: string,
+  previouslyUsedImages: string[]
+): Promise<string> {
+  const isValidExtension = (url: string) =>
+    /\.(jpg|jpeg|png|webp)$/i.test(url);
+
+  // Filter out broken images and only consider relevant ones
+  const relevantImages = previouslyUsedImages.filter(url => {
+    const lowerUrl = url.toLowerCase();
+    return (
+      (lowerUrl.includes(technology.toLowerCase()) ||
+       lowerUrl.includes(concept.toLowerCase())) &&
+      isValidExtension(lowerUrl)
+    );
+  });
+
+  const shuffled = relevantImages.sort(() => Math.random() - 0.5);
+
+  for (const url of shuffled) {
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      if (res.ok) return `"${url}"`;
+    } catch {
+      continue;
+    }
+  }
+
+  // Final fallback: placeholder
+  return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(
+    technology + " " + concept
+  )}"`;
 }
