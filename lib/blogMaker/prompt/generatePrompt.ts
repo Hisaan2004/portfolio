@@ -4,7 +4,7 @@ export async function generateBlogPrompt(images:string[]): Promise<string> {
   const { day, topic, technology, concept, totalTopics } = getTodayTopic();
   const date = new Date().toISOString();
    const ogImage = await getValidImageURL(technology, concept, images);
-  //const usedOGImages=images;
+
 
   return `
 You are given two arrays of programming technologies and syntax concepts.
