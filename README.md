@@ -1,3 +1,4 @@
+
 <h1 align="center">👋 Hisaan's Portfolio Website</h1>
 
 <p align="center">
@@ -20,29 +21,27 @@
 ---
 
 ## 📁 Project Structure
-├── app/ # Main app directory (Next.js 13+ App Router)
-│ ├── about/ # About page
-│ ├── blog/ # Blog listing and dynamic routes
-│ ├── chat/ # Chatbot feature
-│ ├── projects/ # Projects page
-│ ├── service/ # Database config (MongoDB)
-│ ├── skills/ # Skills listing
-│ ├── widget/ # Reusable components like Text
-│ └── layout.tsx # App layout wrapper
+```
+├── app/                    # Main app directory (Next.js 13+ App Router)
+│   ├── about/             # About page
+│   ├── blog/              # Blog listing and dynamic routes
+│   ├── chat/              # Chatbot feature
+│   ├── projects/          # Projects page
+│   ├── service/           # Database config (MongoDB)
+│   ├── skills/            # Skills listing
+│   ├── widget/            # Reusable components like Text
+│   └── layout.tsx         # App layout wrapper
 │
-├── public/ # Static assets (images, icons)
-│
-├── styles/ # Global styles or Tailwind config (if used)
-│
-├── types/ # TypeScript interfaces & types
-│
-├── utils/ # Utility functions (e.g., slug generator)
-│
-├── .env.local # Environment variables (not committed)
-├── next.config.js # Next.js configuration
-├── tailwind.config.js # Tailwind CSS configuration
-├── tsconfig.json # TypeScript config
-└── README.md # This file
+├── public/                # Static assets (images, icons)
+├── styles/                # Global styles or Tailwind config (if used)
+├── types/                 # TypeScript interfaces & types
+├── utils/                 # Utility functions (e.g., slug generator)
+├── .env.local             # Environment variables (not committed)
+├── next.config.js         # Next.js configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript config
+└── README.md              # This file
+```
 
 ---
 
@@ -78,11 +77,20 @@ git clone https://github.com/Hisaan2004/portfolio.git
 cd portfolio
 npm install
 npm run dev
-create .env file that contain mongodb connection string and google pi key
-👤 Author
-Hisaan Sakhawat
+```
+Then, create a `.env.local` file and add your MongoDB connection string and Google API key.
 
-Portfolio: portfolio-hisaan2004s-projects.vercel.app
+---
 
-GitHub: @Hisaan2004
+## 👤 Author
 
+**Hisaan Sakhawat**
+
+- Portfolio: [portfolio-hisaan2004s-projects.vercel.app](https://portfolio-hisaan2004s-projects.vercel.app)
+- GitHub: [@Hisaan2004](https://github.com/Hisaan2004)
+
+---
+
+## ⭐️ Show Your Support
+
+Give a ⭐️ if you like this project or it helped you!
