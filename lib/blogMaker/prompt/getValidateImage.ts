@@ -125,7 +125,7 @@ export async function getValidImageURL(
   return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(
     technology + " " + concept
   )}"`;
-}*/
+}*//*
 import fetch from "node-fetch";
 
 export async function getValidImageURL(
@@ -163,5 +163,28 @@ export async function getValidImageURL(
   return `https://via.placeholder.com/800x400.png?text=${encodeURIComponent(
     technology + " " + concept
   )}`;
+}
+*/
+import { imagePool } from "./imagePool";
+
+export async function getValidImageURL(
+  technology: string,
+  concept: string,
+  previouslyUsedImages: string[]
+): Promise<string> {
+  const techKey = technology.toLowerCase();
+  const candidates = imagePool[techKey] || [];
+
+  // Remove URLs already used
+  const unusedImages = candidates.filter(url => !previouslyUsedImages.includes(url));
+
+  if (unusedImages.length === 0) {
+    // All images used → fallback
+    return `https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + " " + concept)}`;
+  }
+
+  // Pick a random unused image
+  const chosen = unusedImages[Math.floor(Math.random() * unusedImages.length)];
+  return chosen;
 }
 
