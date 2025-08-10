@@ -89,7 +89,7 @@ export async function getValidImageURL(
   // Final fallback
   return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + ' ' + concept)}"`;
 }
-*/
+*//*
 import fetch from "node-fetch";
 
 export async function getValidImageURL(
@@ -125,4 +125,43 @@ export async function getValidImageURL(
   return `"https://via.placeholder.com/800x400.png?text=${encodeURIComponent(
     technology + " " + concept
   )}"`;
+}*/
+import fetch from "node-fetch";
+
+export async function getValidImageURL(
+  technology: string,
+  concept: string,
+  previouslyUsedImages: string[]
+): Promise<string> {
+  const isValidExtension = (url: string) => /\.(jpg|jpeg|png|webp)$/i.test(url);
+
+  // Generate a candidate list (replace this with actual API calls if needed)
+  const candidateImages = [
+    `https://source.unsplash.com/800x400/?${encodeURIComponent(technology)},${encodeURIComponent(concept)}`,
+    `https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg`,
+    `https://via.placeholder.com/800x400.png?text=${encodeURIComponent(technology + " " + concept)}`
+  ];
+
+  for (const url of candidateImages) {
+    const lowerUrl = url.toLowerCase();
+    if (
+      !previouslyUsedImages.includes(url) && // ❌ Skip already-used
+      isValidExtension(lowerUrl)             // ✅ Ensure correct file type
+    ) {
+      try {
+        const res = await fetch(url, { method: "HEAD" });
+        if (res.ok) {
+          return url; // return raw string, not quoted
+        }
+      } catch {
+        continue;
+      }
+    }
+  }
+
+  // Final fallback if all fail
+  return `https://via.placeholder.com/800x400.png?text=${encodeURIComponent(
+    technology + " " + concept
+  )}`;
 }
+
