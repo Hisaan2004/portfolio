@@ -29,4 +29,14 @@ export const PROJECTS_INFO = [
     description:
       "A real-time computer vision project using Python and OpenCV to detect obstacles in a self-driving environment. Trained and implemented object detection models including YOLO and SSD, with distance estimation for safer autonomous navigation.",
   },
+  {
+    title: "EmpowHR",
+    description:
+      "Developed an AI-driven HR automation platform using Next.js, Tailwind CSS, Python, n8n, and MongoDB for resume parsing, automated interview scheduling, and workflow management. Built an interview module for automated interview conduction and candidate analysis using similarity indexing, facial expression recognition, and speech analysis.",
+  },
+  {
+    title: "Eye Gaze & Engagement Analysis",
+    description:
+      "Built an eye contact and engagement detection system using Python, OpenCV, TensorFlow, and deep learning. Trained a CNN and EfficientNet on the Columbia Gaze Dataset to classify engagement levels such as attentive, distracted, and disengaged based on gaze angle and head pose, optimized for real-time webcam inference.",
+  },
 ];
