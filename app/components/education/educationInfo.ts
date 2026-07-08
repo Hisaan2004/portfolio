@@ -15,7 +15,7 @@ export const EDUCATION_INFO = {
     },
     {
       title: "Bachelors",
-      year: "2022-Present",
+      year: "2022-2026",
       name: "National University of Computer and Emerging Sciences",
       description: "BS in Computer Science",
     },
